@@ -44,10 +44,10 @@ export default function AboutUs() {
               alt="Description"
               width={50}
               height={50}
-              className={`inline-block`}
+              className={`relative z-20 inline-block`}
             />
             <div
-              className={`absolute rounded-full aspect-square w-9 opacity-60 inset-1.75 -top-0.5 ${active ? "bg-yellow-300" : ""}`}
+              className={`absolute z-0 rounded-full aspect-square w-9 opacity-60 inset-1.75 -top-0.5 ${active ? "bg-yellow-300" : ""}`}
             ></div>
           </div>
         </h5>

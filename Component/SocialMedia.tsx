@@ -60,12 +60,12 @@ const socialMediaLinks: SocialMediaLink[] = [
         <polyline points="22,6 12,13 2,6"></polyline>
       </svg>
     ),
-  }
+  },
 ];
 
 export default function SocialMedia() {
   return (
-    <div className="flex flex-row gap-6 justify-left items-center">
+    <div id="contact" className="flex flex-row gap-6 justify-left items-center">
       {socialMediaLinks.map((link) => {
         const isMailto = link.url.startsWith("mailto:");
 

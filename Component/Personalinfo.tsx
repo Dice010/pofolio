@@ -5,7 +5,7 @@ import SocialMedia from "@/Component/SocialMedia";
 
 export default function Personalinfo() {
   return (
-    <section className="flex flex-row flex-wrap md:gap-10 gap-4 items-center justify-center w-full bg-white text-black md:py-8 py-4">
+    <section id="personal-info" className="flex flex-row flex-wrap md:gap-10 gap-4 items-center justify-center w-full bg-white text-black md:py-8 py-4">
       <Image
         src="/img/Profile.png"
         alt="Profile Picture"

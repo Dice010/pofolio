@@ -15,22 +15,22 @@ const navbartags: navbartag[] = [
   {
     id: 0,
     name: "About Us",
-    link: "/AboutUs",
+    link: "#about-us",
   },
   {
     id: 1,
     name: "CV",
-    link: "/",
+    link: "#personal-info",
   },
   {
     id: 2,
     name: "My Product",
-    link: "/MyProduct",
+    link: "#my-product",
   },
   {
     id: 3,
     name: "Contact",
-    link: "/Contact",
+    link: "#contact",
   },
 ];
 
