@@ -34,14 +34,13 @@ const navbartags: navbartag[] = [
   },
 ];
 
-
 export default function Navbar() {
   const [active, setActive] = useState(false);
   const ToggleEvent = () => {
     setActive(!active);
   };
   return (
-    <section className="flex flex-row bg-[#0B132B] border-b border-white/5 sm:justify-center items-center relative">
+    <section className="sticky top-0 z-50 w-full flex flex-row bg-[#0B132B] border-b border-white/5 sm:justify-center items-center">
       <div className="max-sm:hidden">
         <ul className="flex flex-row text-white text-md justify-between min-w-[40%]">
           {navbartags.map((tag) => (

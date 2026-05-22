@@ -19,7 +19,7 @@ export default function Personalinfo() {
           className="font-bold group"
         >
           Xin chào, mình tên{" "}
-          <span className="transition-all duration-500 max-md:text-blue-500 max-md:underline group-hover:text-blue-500 group-hover:underline">
+          <span className="transition-all duration-500 max-lg:text-blue-500 max-lg:underline group-hover:text-blue-500 group-hover:underline">
             Nam!
           </span>
         </h1>
@@ -51,7 +51,7 @@ export default function Personalinfo() {
           <p style={{ fontSize: getwordSizes({ key: "s" }) }}>
             Nghề nghiệp: Học Sinh THPT
           </p>
-          {/* Thêm các thông tin khác vd: Github, Gmail, Zalo */}
+          {/* Thêm các thông tin khác vd: Github, Gmail*/}
           <SocialMedia />
         </div>
       </div>

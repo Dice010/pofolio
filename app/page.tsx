@@ -1,6 +1,7 @@
 import { getwordSizes } from "@/Style/word";
 import GradientBanner from "@/Component/GradientBanner";
 import PersonalInfo from "@/Component/Personalinfo";
+import AboutUs from "@/Component/AboutUs";
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
       </GradientBanner>
       <div className="w-full max-w-204.75 overflow-hidden px-2">
         <PersonalInfo />
-      </div>
+        <AboutUs />
+        {/* Các phần khác như My Product, Contact sẽ được thêm vào đây sau */}
+       </div>
     </section>
   );
 }

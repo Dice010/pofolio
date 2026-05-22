@@ -6,10 +6,10 @@ import React from "react";
 type SocialMediaLink = {
   name: string;
   url: string;
-  mobileBgClass: string; // Màu nền hiện sẵn trên mobile
-  desktopHoverBgClass: string; // Hiệu ứng màu nền khi hover trên desktop
-  mobileIconClass: string; // Màu icon hiện sẵn trên mobile
-  desktopHoverIconClass: string; // Hiệu ứng màu icon khi hover trên desktop
+  mobileBgClass: string; // Màu nền hiện sẵn trên mobile & tablet (max-lg)
+  desktopHoverBgClass: string; // Hiệu ứng màu nền khi hover trên desktop (lg trở lên)
+  mobileIconClass: string; // Màu icon hiện sẵn trên mobile & tablet (max-lg)
+  desktopHoverIconClass: string; // Hiệu ứng màu icon khi hover trên desktop (lg trở lên)
   svgIcon: React.ReactNode;
 };
 
@@ -19,10 +19,10 @@ const socialMediaLinks: SocialMediaLink[] = [
     url: "https://github.com/Dice010",
     mobileBgClass: "bg-slate-800 border-slate-700",
     desktopHoverBgClass:
-      "md:bg-white/5 md:border-white/10 md:hover:bg-slate-800 md:hover:border-slate-700",
+      "lg:bg-white/5 lg:border-white/10 lg:hover:bg-slate-800 lg:hover:border-slate-700",
     mobileIconClass: "text-white stroke-white",
     desktopHoverIconClass:
-      "md:text-slate-400/80 md:group-hover:text-white md:group-hover:stroke-white",
+      "lg:text-slate-400/80 lg:group-hover:text-white lg:group-hover:stroke-white",
     svgIcon: (
       <svg
         viewBox="0 0 24 24"
@@ -42,10 +42,10 @@ const socialMediaLinks: SocialMediaLink[] = [
     url: "mailto:thaihoangnam13@gmail.com",
     mobileBgClass: "bg-red-950/40 border-red-500/30",
     desktopHoverBgClass:
-      "md:bg-white/5 md:border-white/10 md:hover:bg-red-950/40 md:hover:border-red-500/30",
+      "lg:bg-white/5 lg:border-white/10 lg:hover:bg-red-950/40 lg:hover:border-red-500/30",
     mobileIconClass: "text-[#EA4335] stroke-[#EA4335]",
     desktopHoverIconClass:
-      "md:text-slate-400/80 md:group-hover:text-[#EA4335] md:group-hover:stroke-[#EA4335]",
+      "lg:text-slate-400/80 lg:group-hover:text-[#EA4335] lg:group-hover:stroke-[#EA4335]",
     svgIcon: (
       <svg
         viewBox="0 0 24 24"
@@ -66,46 +66,50 @@ const socialMediaLinks: SocialMediaLink[] = [
 export default function SocialMedia() {
   return (
     <div className="flex flex-row gap-6 justify-left items-center">
-      {socialMediaLinks.map((link) => (
-        <Link
-          key={link.name}
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          /* 
-            - Mặc định (Mobile): Hiện sẵn màu nền riêng biệt tương ứng từng icon (link.mobileBgClass)
-            - Từ màn hình md trở lên: Reset về nền tối mờ ban đầu và bật lại hiệu ứng hover (link.desktopHoverBgClass)
-          */
-          className={`group relative flex items-center justify-center w-12 h-12 rounded-xl 
-                     transition-all duration-300 ease-out
-                     md:hover:-translate-y-1 md:hover:shadow-[0_8px_20px_rgba(11,19,43,0.4)]
-                     ${link.mobileBgClass} ${link.desktopHoverBgClass}`}
-        >
-          {/* KHUNG CHỨA SVG: Trên mobile hiện sẵn màu thương hiệu, trên desktop giữ màu xám và đổi khi hover */}
-          <div
-            className={`w-5 h-5 stroke-current transition-all duration-300 md:group-hover:scale-110 
-                       ${link.mobileIconClass} ${link.desktopHoverIconClass}`}
-          >
-            {link.svgIcon}
-          </div>
+      {socialMediaLinks.map((link) => {
+        const isMailto = link.url.startsWith("mailto:");
 
-          {/* TOOLTIP HIỂN THỊ TÊN KHI HOVER (Chỉ kích hoạt mượt mà trên desktop thông qua group-hover) */}
-          <span
-            className="absolute bottom-full mb-3 px-2.5 py-1 rounded-md text-xs font-semibold tracking-wider
-                       bg-slate-900 border border-white/10 text-cyan-400 whitespace-nowrap shadow-md
-                       pointer-events-none select-none
-                       opacity-0 translate-y-1 scale-95
-                       md:group-hover:opacity-100 md:group-hover:translate-y-0 md:group-hover:scale-100 
-                       transition-all duration-200 ease-out"
+        return (
+          <Link
+            key={link.name}
+            href={link.url}
+            target={isMailto ? undefined : "_blank"}
+            rel={isMailto ? undefined : "noopener noreferrer"}
+            /* 
+              - Mặc định (Dưới lg): Hiện sẵn màu nền riêng biệt (link.mobileBgClass)
+              - Từ màn hình lg trở lên: Reset về nền tối mờ ban đầu và bật lại hiệu ứng hover (link.desktopHoverBgClass)
+            */
+            className={`group relative flex items-center justify-center w-12 h-12 rounded-xl 
+                       transition-all duration-300 ease-out
+                       lg:hover:-translate-y-1 lg:hover:shadow-[0_8px_20px_rgba(11,19,43,0.4)]
+                       ${link.mobileBgClass} ${link.desktopHoverBgClass}`}
           >
-            {link.name}
+            {/* KHUNG CHỨA SVG: Dưới lg hiện sẵn màu thương hiệu, từ lg trở lên giữ màu xám và đổi khi hover */}
+            <div
+              className={`w-5 h-5 stroke-current transition-all duration-300 lg:group-hover:scale-110 
+                         ${link.mobileIconClass} ${link.desktopHoverIconClass}`}
+            >
+              {link.svgIcon}
+            </div>
+
+            {/* TOOLTIP HIỂN THỊ TÊN KHI HOVER (Chỉ kích hoạt mượt mà từ màn hình lg trở lên) */}
             <span
-              className="absolute top-full left-1/2 -translate-x-1/2 -mt-1.25 
-                         border-4 border-transparent border-t-slate-900 content-empty"
-            />
-          </span>
-        </Link>
-      ))}
+              className="absolute bottom-full mb-3 px-2.5 py-1 rounded-md text-xs font-semibold tracking-wider
+                         bg-slate-900 border border-white/10 text-cyan-400 whitespace-nowrap shadow-md
+                         pointer-events-none select-none
+                         opacity-0 translate-y-1 scale-95
+                         lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:group-hover:scale-100 
+                         transition-all duration-200 ease-out"
+            >
+              {link.name}
+              <span
+                className="absolute top-full left-1/2 -translate-x-1/2 -mt-1.25 
+                           border-4 border-transparent border-t-slate-900 content-empty"
+              />
+            </span>
+          </Link>
+        );
+      })}
     </div>
   );
 }
