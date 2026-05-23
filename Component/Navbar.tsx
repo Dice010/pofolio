@@ -24,8 +24,8 @@ const navbartags: navbartag[] = [
   },
   {
     id: 2,
-    name: "My Product",
-    link: "#my-product",
+    name: "My Projects",
+    link: "#my-project",
   },
   {
     id: 3,
