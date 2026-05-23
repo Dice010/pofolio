@@ -12,7 +12,8 @@ const projectlist: projects[] = [
   {
     id: 0,
     name: "Comic Showcase",
-    link: "",
+    imgURL: "/img/ComicShowcase.png",
+    link: "https://github.com/Dice010/project0",
   },
 ];
 

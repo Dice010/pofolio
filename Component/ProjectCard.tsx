@@ -14,11 +14,11 @@ export default function ProjectCard({ project }: { project: projects }) {
         <Image
           src={project.imgURL || "/img/project-placeholder.png"}
           alt={project.name}
-          width={1}
-          height={1}
-          className="w-full h-[50%] flex items-center justify-center bg-gray-200 object-cover"
+          width={150}
+          height={150}
+          className="w-full h-[70%] flex items-center justify-center bg-gray-200 object-none"
         />
-        <div className="w-full h-[50%] flex flex-col items-center justify-center p-4">
+        <div className="w-full h-[30%] flex flex-col items-center justify-center p-4">
           <h6
             className="text-lg font-semibold"
             style={{ fontSize: getwordSizes({ key: "h6" }) }}
