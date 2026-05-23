@@ -30,7 +30,7 @@ const navbartags: navbartag[] = [
   {
     id: 3,
     name: "Contact",
-    link: "#contact",
+    link: "#personal-info",
   },
 ];
 

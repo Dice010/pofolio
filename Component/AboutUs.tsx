@@ -10,7 +10,7 @@ export default function AboutUs() {
     setActive(!active);
   };
   return (
-    <section className="flex flex-row flex-wrap md:gap-10 gap-4 items-center justify-center w-full bg-white text-black md:py-8 py-4">
+    <section id="about-us" className="flex flex-row flex-wrap md:gap-10 gap-4 items-center justify-center w-full bg-white text-black md:py-8 py-4">
       <div>
         <button
           className="group relative inline-block aspect-square w-50 cursor-pointer lg:brightness-50 hover:translate-y-2 hover:brightness-100 transition-all duration-500"

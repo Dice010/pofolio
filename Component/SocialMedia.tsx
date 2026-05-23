@@ -65,7 +65,7 @@ const socialMediaLinks: SocialMediaLink[] = [
 
 export default function SocialMedia() {
   return (
-    <div id="contact" className="flex flex-row gap-6 justify-left items-center">
+    <div className="flex flex-row gap-6 justify-left items-center">
       {socialMediaLinks.map((link) => {
         const isMailto = link.url.startsWith("mailto:");
 

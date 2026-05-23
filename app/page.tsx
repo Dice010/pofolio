@@ -3,6 +3,7 @@ import GradientBanner from "@/Component/GradientBanner";
 import PersonalInfo from "@/Component/Personalinfo";
 import AboutUs from "@/Component/AboutUs";
 import TechStack from "@/Component/TechStack";
+import MyProject from "@/Component/MyProject";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
         <PersonalInfo />
         <AboutUs />
         <TechStack />
-        {/* Các phần khác như My Product, Contact sẽ được thêm vào đây sau */}
+        <MyProject />
        </div>
     </section>
   );
